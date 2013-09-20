@@ -42,7 +42,7 @@ def retrieve_url (url):
         return []
 
 def print_links (url, depth, bullet='*'):
-
+    """ print links in recursive mode """
     if depth == 0:
         # Depth is overtaken then return to up level
         return
