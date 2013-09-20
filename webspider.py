@@ -31,6 +31,7 @@ import argparse
 from bs4 import BeautifulSoup as Soup
 
 def main():
+    """ Main function: Argument are parsered"""
     
     parser = argparse.ArgumentParser (description = "Let is craaaawl the Internet",
                                     version = '0.1')
@@ -45,12 +46,15 @@ def main():
 
     args = parser.parse_args ()
 
+    # Limit of levels that will be explored
     depth = args.number_of_levels
+    # Url to scan
     url = args.url[0]
 
     print 'depth=%s.' %depth
     print 'url=%s.' %url
 
+    # Print all links in recursive mode
     pywebspider.print_links(url, depth)
 
 if __name__ == '__main__':
