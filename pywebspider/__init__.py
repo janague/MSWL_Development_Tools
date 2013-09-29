@@ -25,8 +25,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 '''
 ################################################################################
 
-
 import urllib2
+import settings as st
 from bs4 import BeautifulSoup as Soup
 
 def retrieve_url (url):
@@ -44,7 +44,7 @@ def retrieve_url (url):
         # URL has a error value
         return []
 
-def print_links (url, depth, bullet='*'):
+def print_links (url, depth, bullet=st.WS_BULLET):
     """ print links in recursive mode """
     if depth == 0:
         # Depth is overtaken then return to up level
@@ -55,4 +55,4 @@ def print_links (url, depth, bullet='*'):
         d = depth - 1
         if l:
             print '%s %s' %(bullet,l)
-        print_links (l,d,bullet+'*')
+        print_links (l,d,bullet+st.WS_BULLET)
