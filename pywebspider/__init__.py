@@ -42,6 +42,7 @@ def retrieve_url (url):
 	return []
     except ValueError:
         # URL has a error value
+        # TODO dont print the url.
         return []
 
 def print_links (url, depth, bullet=st.WS_BULLET):
