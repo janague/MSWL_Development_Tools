@@ -27,34 +27,66 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 '''
 ################################################################################
 
+# Import standard modules
 import sys
 import pywebspider
 import argparse
 from bs4 import BeautifulSoup as Soup
 
+# Import program modules
+from pywebspider import settings as st
+
 def main():
-    """ Main function: Argument are parsered"""
+    """ Parse arguments and call principal function print_links"""
     
-    parser = argparse.ArgumentParser (description = "Let is craaaawl the Internet",
-                                    version = '0.1')
+    # Set description and version of the program
+    parser = argparse.ArgumentParser (description="Let is craaaawl the Internet",
+                                      version="%(prog)s 0.1",
+                                      epilog="The Birds are coming!!! Close your windows.")
+     
+    # Parse the target url
+    parser.add_argument ("url" ,
+                        nargs='?',
+                        help="target URL")
+    
+    # Parse argument to show license
+    parser.add_argument ("-l",
+                        "--license",
+                        help="show license",
+                        action="store_true")
 
-    parser.add_argument ('url' , nargs =1 , help = 'target URL')
-
-    parser.add_argument ('-n',
-                        '--number-of-levels',
-                        type = int ,
-                        default =1,
-                        help = 'how deep the craaaawl will go')
+    # Parse argument to get the number of levels for scanning
+    parser.add_argument ("-n",
+                        "--number-of-levels",
+                        type=int ,
+                        default=1,
+                        help="how deep the craaaawl will go")
+    
+    # Parse argument to do verbose of the program 
+    parser.add_argument("--verbosity",
+                        help="increase output verbosity",
+                        action="store_true")
 
     args = parser.parse_args ()
+
+    # Print license
+    if args.license:
+        print st.WS_LICENSE
+        sys.exit(0)
+    
+    # set verbosity value
+    if args.verbosity:
+        print "info: Verbosity turned on"  
 
     # Limit of levels that will be explored
     depth = args.number_of_levels
     # Url to scan
-    url = args.url[0]
+    url = args.url
+    print "URL:%s." % url
 
-    print 'depth=%s.' %depth
-    print 'url=%s.' %url
+    if args.verbosity:
+        print "Info: depth=%s." % depth
+        print "Info: url=%s." % url
 
     # Print all links in recursive mode
     pywebspider.print_links(url, depth)

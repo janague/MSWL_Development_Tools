@@ -34,7 +34,7 @@ setup (name = 'WebSpider',
     install_requires = ['bs4'],
     package_data = {},
     author = 'janague',
-    author_email = "adfadsf@dfadsf.com",
+    author_email = "someone@somewhere.com",
     description = 'Spider for web pages',
     url = 'http://www.webspider.org'
     )
