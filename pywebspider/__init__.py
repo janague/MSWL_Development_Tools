@@ -59,4 +59,4 @@ def print_links (url, depth, bullet=st.WS_BULLET):
         d = depth - 1
         if l:
             print '%s %s' % (bullet, l)
-        print_links (l, d, bullet + st.WS_BULLET)
+        print_links (l, d, bullet + bullet)

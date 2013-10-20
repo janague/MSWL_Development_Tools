@@ -62,6 +62,12 @@ def main():
                         default=1,
                         help="how deep the craaaawl will go")
     
+    # Parse argument to set different bullet, default *
+    parser.add_argument ("-b",
+                        "--bullet",
+                        default="*",
+                        help="Set different bullet character to print levels of scanning")
+    
     # Parse argument to do verbose of the program 
     parser.add_argument("--verbosity",
                         help="increase output verbosity",
@@ -72,11 +78,18 @@ def main():
     # Print license
     if args.license:
         print st.WS_LICENSE
-        sys.exit(0)
+        sys.exit(0) 
     
     # set verbosity value
     if args.verbosity:
         print "info: Verbosity turned on"  
+        
+    # Change default character for bullet
+    if args.bullet:
+        print "Bullet: %s." % st.WS_BULLET
+        st.WS_BULLET = args.bullet[0]
+        print "Bullet: %s." % st.WS_BULLET
+        bullet = args.bullet  
 
     # Limit of levels that will be explored
     depth = args.number_of_levels
@@ -89,7 +102,7 @@ def main():
         print "Info: url=%s." % url
 
     # Print all links in recursive mode
-    pywebspider.print_links(url, depth)
+    pywebspider.print_links(url, depth, bullet)
 
 if __name__ == '__main__':
     main()
