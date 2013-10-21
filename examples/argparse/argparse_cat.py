@@ -16,4 +16,14 @@ GNU coreutils home page: <http://www.gnu.org/software/coreutils/>
 General help using GNU software: <http://www.gnu.org/gethelp/>
 For complete documentation, run: info coreutils 'cat invocation'""")
 
+parser.add_argument("-A", "--show-all", 
+                    help="equivalent to -vET",
+                    action="store_true")
+parser.add_argument("-b", "--number-nonblank", 
+                    help="number nonempty output lines, overrides -n",
+                    action="store_true")
+parser.add_argument("-e",  
+                    help="equivalent to -vE",
+                    action="store_true")
+
 parser.parse_args()
