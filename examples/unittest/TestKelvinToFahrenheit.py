@@ -20,9 +20,9 @@ class TestKelvinToFahrenheit (unittest.TestCase):
         fahr_temp = math.ceil(k2f.KelvinToFahrenheit(255.22))
         self.assertEqual(fahr_temp, 0)
 
-    # Test assert raises, in this case colder than absolute cero
+    # Test assert raises, in this case colder than absolute zero
     # something impossible.
-    def test_colder_abs_cero (self):
+    def test_colder_abs_zero (self):
         self.assertRaises(AssertionError,
                             k2f.KelvinToFahrenheit,
                             - 1)
