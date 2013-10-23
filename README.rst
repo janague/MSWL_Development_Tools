@@ -48,3 +48,5 @@ https://github.com/janague/MSWL_Development_Tools/wiki/Create-your-first-release
 **Register your package with the Python Package Index (PyPI)**
 
 https://github.com/janague/MSWL_Development_Tools/wiki/Register-your-package-with-the-Python-Package-Index-PyPI
+
+https://pypi.python.org/pypi/WebSpider
