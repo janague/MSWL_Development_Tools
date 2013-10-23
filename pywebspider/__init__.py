@@ -26,13 +26,18 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ################################################################################
 
 import urllib2
-""" Constants of the application """
+# Constants of the application 
 import settings as st      
 from bs4 import BeautifulSoup as Soup
 
 def retrieve_url (url):
-    """ This function retrieve all urls tagged by 'a' in the html source code.
+    """ 
+    This function retrieve all urls tagged by 'a' in the html source code.
+    
+    Keyword arguments:
+        url -- url to scan
     """
+    
     opener = urllib2.build_opener()
     try:
 	t = opener.open (url).read ()
@@ -43,17 +48,22 @@ def retrieve_url (url):
 	return []
     except ValueError:
         # URL has a error value
-        # TODO dont print the url.
-        # test task list activate
-        # fasdfsdfasfsadfsdfasd
         return []
 
 def print_links (url, depth, bullet=st.WS_BULLET):
-    """ print links in recursive mode """
+    """
+    Print different levels of links in recursive mode
+    
+    Keyword arguments:
+        url -- url to scan
+        depth -- maximum levels to scan
+        bullet -- used character for printing different levels ( default '*')
+    """
     if depth == 0:
         # Depth is overtaken then return to up level
         return
 
+    # Call function recursively
     links = retrieve_url (url)
     for l in links:
         d = depth - 1
