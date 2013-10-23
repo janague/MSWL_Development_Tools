@@ -27,7 +27,8 @@ Supporting material
 NB: Actually, the basic requirements of the application only have to list all the links of a web page.
 
 Possible Test cases
-----------
+--------------------
+
 webspider.py 
 
 webspider.py -h 
@@ -37,3 +38,13 @@ webspider.py  -n 1 http://herraiz.org
 webspider.py  -n 2 http://herraiz.org | tail -n 20
 
 webspider.py  -n 3 http://herraiz.org | tail -n 30
+
+First release
+--------------
+**Create your first release**
+
+https://github.com/janague/MSWL_Development_Tools/wiki/Create-your-first-release)
+
+**Register your package with the Python Package Index (PyPI)**
+
+https://github.com/janague/MSWL_Development_Tools/wiki/Register-your-package-with-the-Python-Package-Index-(PyPI)

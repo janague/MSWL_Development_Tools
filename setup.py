@@ -30,7 +30,7 @@ from setuptools import setup, find_packages
 setup (name='WebSpider',
     version='0.1',
     packages=find_packages(),
-    scripts=['myspider'],
+    scripts=['webspider'],
     install_requires=['bs4'],
     package_data={},
     author='janague',
