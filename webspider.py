@@ -82,25 +82,30 @@ def main():
     
     # set verbosity value
     if args.verbosity:
-        print "info: Verbosity turned on"  
+        print "Info: Verbosity turned on"  
         
     # Change default character for bullet
     if args.bullet:
-        print "Bullet: %s." % st.WS_BULLET
         st.WS_BULLET = args.bullet[0]
-        print "Bullet: %s." % st.WS_BULLET
         bullet = args.bullet  
 
     # Limit of levels that will be explored
     depth = args.number_of_levels
     # Url to scan
     url = args.url
-    print "URL:%s." % url
+    if url == None:
+        print "Warning: URL is required"
+        print """usage: webspider.py [-h] [-v] [-l] [-n NUMBER_OF_LEVELS] [-b BULLET] 
+                    [--verbosity]
+                    [url]"""
+
+        sys.exit(0)
 
     if args.verbosity:
         print "Info: depth=%s." % depth
         print "Info: url=%s." % url
-
+        print "Info: Bullet: %s." % st.WS_BULLET
+        
     # Print all links in recursive mode
     pywebspider.print_links(url, depth, bullet)
 
