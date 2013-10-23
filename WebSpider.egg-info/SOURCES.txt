@@ -1,0 +1,10 @@
+README.rst
+setup.py
+webspider
+WebSpider.egg-info/PKG-INFO
+WebSpider.egg-info/SOURCES.txt
+WebSpider.egg-info/dependency_links.txt
+WebSpider.egg-info/requires.txt
+WebSpider.egg-info/top_level.txt
+pywebspider/__init__.py
+pywebspider/settings.py
